@@ -1,0 +1,23 @@
+name: Node Build
+
+on: [push,pull_request]
+
+jobs:
+  mainbuild:
+    run-on: ${{ matrix.os }}
+    
+  strategy:
+    matrix:
+      node-verion: [12.x]
+      
+  steps:
+  - uses: actions/checkout@v1
+  - name: Run node.js on latest Windows.
+  - uses: action/setuo-node@v1
+    with:
+      node-version: ${{  matrix.node-version }}
+  
+  - name: Install NPM and build
+  - run: |
+      npm ci
+      npm run build
