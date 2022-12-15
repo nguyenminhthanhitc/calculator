@@ -13,7 +13,7 @@ jobs:
   steps:
   - uses: actions/checkout@v1
   - name: Run node.js on latest Windows.
-  - uses: actions/setuo-node@v1
+  - uses: actions/setup-node@v1
     with:
       node-version: ${{  matrix.node-version }}
   
